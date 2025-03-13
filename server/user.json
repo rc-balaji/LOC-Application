@@ -1,0 +1,45 @@
+[
+  {
+    "_id": 1,
+    "email": "sam@gmail.com",
+    "username": "Sam",
+    "password": "12345",
+    "role": "admin",
+    "allocated_places": [
+      {
+        "id": 2,
+        "date": "",
+        "time": "08:00 AM",
+        "status": "live",
+        "reversed": false,
+        "start_time": "2025-03-13T08:00:00Z"
+      }
+    ],
+    "history": [],
+    "status": "live",
+    "live_location": {
+      "lat": 11.062,
+      "lng": 73.037
+    }
+  },
+  {
+    "_id": 2,
+    "email": "user@gmail.com",
+    "username": "User",
+    "password": "12345",
+    "role": "user",
+    "allocated_places": [
+      {
+        "id": 2,
+        "date": "",
+        "time": "08:00 AM",
+        "status": "offline",
+        "reversed": false,
+        "start_time": null
+      }
+    ],
+    "history": [],
+    "status": "offline",
+    "live_location": null
+  }
+]

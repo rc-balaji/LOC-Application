@@ -1,0 +1,26 @@
+[
+  {
+    "_id": 1,
+    "name": "Route 1",
+    "source": "Office",
+    "destination": "Home",
+    "points": [
+      {
+        "lat": 11.06197,
+        "lng": 77.03689
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "Route 2",
+    "source": "Home ",
+    "destination": "Office",
+    "points": [
+      {
+        "lat": 11.06197,
+        "lng": 77.03689
+      }
+    ]
+  }
+]

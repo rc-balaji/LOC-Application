@@ -1,0 +1,208 @@
+user data
+[
+  {
+    "_id": 1,
+    "email": "sam@gmail.com",
+    "username": "Sam",
+    "password": "12345",
+    "role": "user",
+    "allocated_places": [
+      {
+        "id": 2,
+        "date": "",
+        "time": "",
+        "status": "live"
+        "start_time" : "22:10:23 12/12/2024" 
+        reversed : true or false
+      },
+      {
+        "id": 2,
+        "date": "",
+        "time": "",
+        "status": "offline",
+        "start_time" : null
+      }
+    ],
+    history : [
+
+    ]
+    "status": "live",
+    "live_location": {
+      "lat": 11.06197,
+      "lng": 77.03689
+    }
+  },
+  {
+    "_id": 2,
+    "email": "sam2@gmail.com",
+    "username": "Sam2",
+    "password": "12345",
+    "role": "user",
+    "allocated_places": [
+      {
+        "id": 2,
+        "date": "",
+        "time": ""
+      }
+    ],
+    "status": "offline",
+    "live_location": null
+  }
+]
+
+
+location data
+
+[
+  {
+    "_id": 1,
+    "name": "From to Office to Coimbatore",
+
+    "source": "NGP Institutions Entrance",
+
+    "destination": "Saibaba Colony",
+    "points": [
+      { "lat": 11.06197, "lng": 77.03689, "_id": "67d16514d8faecf67e287f1e" }
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "Coimbatore",
+
+    "source": "SRM Institutions Entrance",
+
+    "destination": "FRH Colony",
+    "points": [
+      { "lat": 11.06197, "lng": 77.03689, "_id": "67d16514d8faecf67e287f1e" }
+    ]
+  }
+]
+
+
+These Are My data Set Now I want to develop the Following APIS
+
+/auth/login
+--this will authorize the user and response the user's id  , email , name okii
+
+
+/auth/register 
+--this will used to stored the users data gettingas username  , email and password 
+role is by default is user but Enum from ['user','admin']
+
+
+/users
+	- this will resturn the list of users who are role is users
+/users/:user_id
+	- this will resturn the user's complete details 
+/users/:user_id/locations
+	- this will response the list allocated locations along with their name and the status lits	
+		[
+      {
+        _id : 
+        name :
+        status : 
+		}]
+
+/users/:user_id/location/:location_id
+  -this will response the respective locations id data complete data
+
+
+location/create
+  -this will create the location
+
+  {
+      name: userInput.name,
+      source: userInput.source,
+      destination: userInput.destination,
+      points: directions
+        ? directions.routes[0].overview_path.map((point) => ({
+            lat: point.lat(),
+            lng: point.lng(),
+          }))
+        : [],
+    };
+
+/location/start - 
+  --this will upadey the users data from status to live and update the timestamp
+    this will take the body params as
+      {
+          user_id : 
+          location_id : 
+          timestamp : 
+      }
+
+      you have to update both in allocated data in the array as well as 
+      users data status okii
+      Also make that no others location in the array or status in users is in offline 
+      you have to allowed only if the lcaotion is offline okiii
+
+
+/location/stop - 
+
+   --this will upadey the users data from status to offline and update the timestamp to null
+    this will take the body params as
+      {
+          user_id : 
+          location_id : 
+          timestamp : 
+      }
+
+      you have to update both in allocated data in the array as well as 
+      users data status okii
+      also in this You have to stored the history like to respective user like
+      {
+        id :
+        location_id :
+        start_time ;
+        end_time :
+        total_duration : [duration travels in HH:MM:SS] eg :  start time is 12:30:00 and end time is 14:30:32 measn the result is 02:00:32 like wiese
+      }
+
+/location/live-location  - PUT methods is to update the live location 
+  body as 
+  {
+    user_id : ---
+    current Location :{
+      lat 
+      long
+    }
+  }
+
+/location/live-location -  this will get the live location of the respetive user
+
+body as 
+
+{
+  user_id:
+  ;live_location : {
+    lat and long 
+  }
+}
+
+location/allocate 
+  - this will allocated the users the location id 
+
+  this is post as user_id  , location_id  , time data , default status offline , reversed status(this will refre as the source and destination will be revreered annd point salso get reversed okii if true measn )
+
+
+  okii
+
+
+  and  then 
+
+
+  first do it in a user.json and location.json and we will further proeceed with DB
+
+  okii
+
+
+location/create
+
+
+
+
+
+
+
+
+
